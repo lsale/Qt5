@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<qnx xmlns="http://www.qnx.com/schemas/application/1.0">
+    <id>com.example.Exp2Run</id>
+    <name>Exp2Run</name>
+    <versionNumber>1.0.0</versionNumber>
+    <description>DESCRIPTION</description>
+    <author>PUBLISHER</author>
+    <copyright>COPYRIGHT</copyright>
+    <initialWindow>
+        <aspectRatio>portrait</aspectRatio>
+        <autoOrients>false</autoOrients>
+        <systemChrome>none</systemChrome>
+        <transparent>false</transparent>
+    </initialWindow>
+    <env value="app/native/imports" var="QML2_IMPORT_PATH"/>
+    <env value="app/native/plugins" var="QT_PLUGIN_PATH"/>
+    <env value="app/native/lib" var="LD_LIBRARY_PATH"/>
+    <arg>-platform</arg>
+    <arg>qnx</arg>
+    <action system="true">run_native</action>
+    <asset type="Qnx/Elf" entry="true" path="Exp2Run">Exp2Run</asset>
+    <asset path="%QT_INSTALL_LIBS%/libQt5Quick.so.5">lib/libQt5Quick.so.5</asset>
+    <asset path="%QT_INSTALL_LIBS%/libQt5Qml.so.5">lib/libQt5Qml.so.5</asset>
+    <asset path="%QT_INSTALL_LIBS%/libQt5Gui.so.5">lib/libQt5Gui.so.5</asset>
+    <asset path="%QT_INSTALL_LIBS%/libQt5Core.so.5">lib/libQt5Core.so.5</asset>
+    <asset path="%QT_INSTALL_LIBS%/libQt5Network.so.5">lib/libQt5Network.so.5</asset>
+    <asset path="%QT_INSTALL_LIBS%/libQt5Nfc.so.5">lib/libQt5Nfc.so.5</asset>
+    <asset path="%QT_INSTALL_LIBS%/libQt5Multimedia.so.5">lib/libQt5Multimedia.so.5</asset>
+    <asset path="%QT_INSTALL_PLUGINS%">plugins</asset>
+    <asset path="%QT_INSTALL_QML%">imports</asset>
+    <asset path="%SRC_DIR%/qml">qml</asset>
+    <!--
+         %QT_INSTALL_LIBS%, %QT_INSTALL_PLUGINS, %QT_INSTALL_QML% and %SRC_DIR%
+         tags are replaced on-the-fly when deploying the app. in Qt Creator.
+    -->
+    <!--
+         By default this bar-descriptor.xml embeds Qt5 runtime
+         into the application itself. See the following document
+         for various deployments of Qt runtime to a device:
+         http://qt-project.org/wiki/Qt-on-BlackBerry-devices
+    -->
+    <invoke-target id="com.example.Exp2Run">
+        <type>APPLICATION</type>
+        <filter>
+            <action>bb.action.OPEN</action>
+            <mime-type>application/vnd.rim.nfc.ndef</mime-type>
+            <property value="ndef://4/my.bb.com/myrecordtype" var="uris"/>
+        </filter>
+    </invoke-target>
+</qnx>
