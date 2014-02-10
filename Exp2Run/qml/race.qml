@@ -94,7 +94,7 @@ Item{
                 if(lap == 10){
                     console.log('race over')
                     raceTimer.stop()
-                    //bennyHill.start()
+                    pageLoader.source = "victory.qml"
                 } else {
                     if(targetLapTime > 5){
                         targetLapTime--

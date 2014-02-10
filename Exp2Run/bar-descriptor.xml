@@ -12,13 +12,13 @@
         <systemChrome>none</systemChrome>
         <transparent>false</transparent>
     </initialWindow>
-    <env value="app/native/imports" var="QML2_IMPORT_PATH"/>
-    <env value="app/native/plugins" var="QT_PLUGIN_PATH"/>
-    <env value="app/native/lib" var="LD_LIBRARY_PATH"/>
+    <env var="QML2_IMPORT_PATH" value="app/native/imports"/>
+    <env var="QT_PLUGIN_PATH" value="app/native/plugins"/>
+    <env var="LD_LIBRARY_PATH" value="app/native/lib"/>
     <arg>-platform</arg>
     <arg>qnx</arg>
     <action system="true">run_native</action>
-    <asset type="Qnx/Elf" entry="true" path="Exp2Run">Exp2Run</asset>
+    <asset entry="true" type="Qnx/Elf" path="Exp2Run">Exp2Run</asset>
     <asset path="%QT_INSTALL_LIBS%/libQt5Quick.so.5">lib/libQt5Quick.so.5</asset>
     <asset path="%QT_INSTALL_LIBS%/libQt5Qml.so.5">lib/libQt5Qml.so.5</asset>
     <asset path="%QT_INSTALL_LIBS%/libQt5Gui.so.5">lib/libQt5Gui.so.5</asset>
@@ -28,6 +28,7 @@
     <asset path="%QT_INSTALL_LIBS%/libQt5Multimedia.so.5">lib/libQt5Multimedia.so.5</asset>
     <asset path="%QT_INSTALL_PLUGINS%">plugins</asset>
     <asset path="%QT_INSTALL_QML%">imports</asset>
+    <!--<asset path="%QT_INSTALL_QML%/QtMultimedia/libdeclarative_multimedia.so">imports/QtMultimedia/libdeclarative_multimedia.so</asset>-->
     <asset path="%SRC_DIR%/qml">qml</asset>
     <!--
          %QT_INSTALL_LIBS%, %QT_INSTALL_PLUGINS, %QT_INSTALL_QML% and %SRC_DIR%
@@ -44,7 +45,7 @@
         <filter>
             <action>bb.action.OPEN</action>
             <mime-type>application/vnd.rim.nfc.ndef</mime-type>
-            <property value="ndef://4/my.bb.com/myrecordtype" var="uris"/>
+            <property var="uris" value="ndef://4/my.bb.com/myrecordtype"/>
         </filter>
     </invoke-target>
 </qnx>

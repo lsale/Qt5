@@ -12,8 +12,8 @@ SOURCES += main.cpp \
     Logger.cpp \
     QQmlNdefFooRecord.cpp
 
-QT += qml core
-QT += nfc
+QT += qml core nfc multimedia
+
 # Installation path
 # target.path =
 
@@ -23,7 +23,10 @@ qtcAddDeployment()
 
 OTHER_FILES += \
     bar-descriptor.xml \
-    qml/MyButton.qml
+    qml/MyButton.qml \
+    qml/victory.qml \
+    qml/race.qml \
+    qml/CustomCountdown.qml
 
 HEADERS += \
     Timer.h \

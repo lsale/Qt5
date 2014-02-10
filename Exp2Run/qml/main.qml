@@ -2,8 +2,7 @@ import QtQuick 2.0
 import QtQuick.Window 2.0
 import CustomTimer 1.0
 import QtNfc 5.2
-//import QtMultimedia 5.0
-
+import QtMultimedia 5.0
 
 Item{
     Loader{
@@ -57,9 +56,11 @@ Item{
                 Timer{
                     id: startCountdownTimer
                     onTimeout: {
-                        if(counter >0)
-                           counter--
-                        else{
+                        if(counter >0){
+                            beep.stop()
+                            beep.play()
+                            counter--
+                        }else{
                             isGoScreenVisible = true;
                             startCountdownTimer.stop();
                             raceScreenTimer.start();
@@ -79,6 +80,10 @@ Item{
                     Component.onCompleted: {
                         raceScreenTimer.setInterval(500);
                     }
+                }
+                MediaPlayer{
+                    id: beep
+                    source: "res/beep.wav"
                 }
             }
         }
