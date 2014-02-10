@@ -48,7 +48,7 @@ Item{
                     buttonText: "Click me"
                     anchors.horizontalCenter: parent.horizontalCenter
                     onClicked: {
-                        startCountdown.start();
+                        startCountdownTimer.start();
                         startButton.enabled = false;
                         startButton.opacity = 0.3;
                     }

@@ -18,7 +18,7 @@
     <arg>-platform</arg>
     <arg>qnx</arg>
     <action system="true">run_native</action>
-    <asset entry="true" type="Qnx/Elf" path="Exp2Run">Exp2Run</asset>
+    <asset type="Qnx/Elf" path="Exp2Run" entry="true">Exp2Run</asset>
     <asset path="%QT_INSTALL_LIBS%/libQt5Quick.so.5">lib/libQt5Quick.so.5</asset>
     <asset path="%QT_INSTALL_LIBS%/libQt5Qml.so.5">lib/libQt5Qml.so.5</asset>
     <asset path="%QT_INSTALL_LIBS%/libQt5Gui.so.5">lib/libQt5Gui.so.5</asset>
@@ -26,9 +26,9 @@
     <asset path="%QT_INSTALL_LIBS%/libQt5Network.so.5">lib/libQt5Network.so.5</asset>
     <asset path="%QT_INSTALL_LIBS%/libQt5Nfc.so.5">lib/libQt5Nfc.so.5</asset>
     <asset path="%QT_INSTALL_LIBS%/libQt5Multimedia.so.5">lib/libQt5Multimedia.so.5</asset>
+    <asset path="%QT_INSTALL_LIBS%/libQt5MultimediaQuick_p.so.5">lib/libQt5MultimediaQuick_p.so.5</asset>
     <asset path="%QT_INSTALL_PLUGINS%">plugins</asset>
     <asset path="%QT_INSTALL_QML%">imports</asset>
-    <!--<asset path="%QT_INSTALL_QML%/QtMultimedia/libdeclarative_multimedia.so">imports/QtMultimedia/libdeclarative_multimedia.so</asset>-->
     <asset path="%SRC_DIR%/qml">qml</asset>
     <!--
          %QT_INSTALL_LIBS%, %QT_INSTALL_PLUGINS, %QT_INSTALL_QML% and %SRC_DIR%
