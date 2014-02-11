@@ -2,6 +2,7 @@ import QtQuick 2.0
 import QtQuick.Window 2.0
 import CustomTimer 1.0
 import QtNfc 5.2
+import QtMultimedia 5.0
 
 Item{
     width: Screen.desktopAvailableWidth
@@ -38,7 +39,7 @@ Item{
                 font.pointSize: 110
                 anchors.horizontalCenter: parent.horizontalCenter
                 anchors.bottom: counter.top
-
+                anchors.bottomMargin: -150
             }
             CustomCountdown{
                 id: counter
@@ -55,10 +56,11 @@ Item{
                 font.pointSize: 50
                 anchors.horizontalCenter: parent.horizontalCenter
                 anchors.top: counter.bottom
+                anchors.topMargin: -150
             }
             MyButton{
                 anchors.horizontalCenter: parent.horizontalCenter
-                anchors.topMargin: -100
+                anchors.topMargin: 20
                 anchors.top: lapCounter.bottom
                 buttonText: "Close"
                 onClicked: {
@@ -73,6 +75,7 @@ Item{
                     }else{
                         currentTimeRemaining = targetLapTime;
                         shoot = true;
+                        siren.play();
                         resetter.start();
                     }
                 }
@@ -87,8 +90,22 @@ Item{
                     resetter.setInterval(3000);
                 }
             }
+            MediaPlayer{
+                id: yay
+                source: "res/yay.wav"
+            }
+            MediaPlayer{
+                id: bennyHill
+                source: "res/benny.mp3"
+            }
+            MediaPlayer{
+                id: siren
+                source: "res/siren.wav"
+            }
+
             Component.onCompleted:{
                 raceTimer.start();
+                bennyHill.play();
             }
             onLapChanged: {
                 if(lap == 10){
@@ -101,7 +118,7 @@ Item{
                     }
                     currentTimeRemaining = targetLapTime
                     if(!shoot){
-                        //yay.play()
+                        yay.play()
                     }
                 }
             }

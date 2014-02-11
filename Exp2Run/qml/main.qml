@@ -29,9 +29,10 @@ Item{
             Column{
                 id: column1
                 width: mainArea.width
-                height: mainArea.height
+                spacing: 100
                 Text{
                     text: "Get ready to loose some fat"
+                    visible: (isGoScreenVisible) ? false : true
                     anchors.horizontalCenter: parent.horizontalCenter
                     color: "white"
                     font.pointSize: 15
@@ -40,17 +41,16 @@ Item{
                     text: (isGoScreenVisible) ? "GO!" : counter
                     anchors.horizontalCenter: parent.horizontalCenter
                     color: "white"
-                    font.pointSize: (isGoScreenVisible) ? 60 : 40
+                    font.pointSize: (isGoScreenVisible) ? 120 : 100
 
                 }
                 MyButton{
                     id: startButton
-                    buttonText: "Click me"
+                    buttonText: "Start"
                     anchors.horizontalCenter: parent.horizontalCenter
                     onClicked: {
                         startCountdownTimer.start();
-                        startButton.enabled = false;
-                        startButton.opacity = 0.3;
+                        startButton.visible = false;
                     }
                 }
                 Timer{
@@ -62,11 +62,9 @@ Item{
                             counter--
                         }else{
                             isGoScreenVisible = true;
+                            goSound.play();
                             startCountdownTimer.stop();
                             raceScreenTimer.start();
-                            counter = 3;
-                            startButton.enabled = true;
-                            startButton.opacity = 1;
                         }
                     }
                 }
@@ -76,6 +74,8 @@ Item{
                         raceScreenTimer.stop();
                         isGoScreenVisible = false;
                         pageLoader.source = "race.qml"
+                        counter = 3;
+                        startButton.visible = true;
                     }
                     Component.onCompleted: {
                         raceScreenTimer.setInterval(500);
@@ -84,6 +84,10 @@ Item{
                 MediaPlayer{
                     id: beep
                     source: "res/beep.wav"
+                }
+                MediaPlayer{
+                    id: goSound
+                    source: "res/go.wav"
                 }
             }
         }

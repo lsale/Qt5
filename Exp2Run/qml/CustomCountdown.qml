@@ -1,16 +1,17 @@
 import QtQuick 2.0
 
-Rectangle {
+Item {
     property int number
     property string textColor: "white"
     property bool isFireScreenOn: false
-    height: counter.height-100
+    height: counter.height
     Text {
         id: counter
         text: number
         color: textColor
         font.pointSize: 140
         anchors.horizontalCenter: parent.horizontalCenter
+        anchors.verticalCenter: parent.verticalCenter
     }
     onNumberChanged: {
         if(number>7){
